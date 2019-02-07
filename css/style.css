@@ -1,0 +1,21 @@
+body {
+    background-color: #e8eaeb;
+}
+div.sidenav {
+    height: 100%;
+    width: 400px;
+    /*width: 20%;*/
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: #e7adbc;
+    overflow-x: hidden;
+    border-right: 2px solid #be8e9a;
+}
+
+div.main {
+    margin-left: 400px;
+    /*margin-left: 80%;*/
+    /*background-color: #70f2ff;*/
+}
