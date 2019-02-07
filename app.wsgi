@@ -46,7 +46,38 @@ def tmdb_api_get_movies_list(genreid, releaseyr):
 
     movies_list = requests.get(fetch_movies_url)
     movies_list_json = movies_list.json()
-    return movies_list_json
+
+    items = movies_list_json['results']
+
+    # create empty dict
+    movieList_dict = {}
+
+    movieList_dict['status'] = 'ok'
+    movieList_dict['list'] = []
+
+    for item in items:
+        movieID = item['id']
+        movieTitle = item['title']
+        movieOverview = item['overview']
+
+        # make api call to fetch movie detail, imdb id and poster path
+        fetch_movie_detail_url = 'https://api.themoviedb.org/3/movie/' + str(movieID) + '?api_key=' \
+        + api_key + '&language=en-US'
+
+        movie_detail_resp = requests.get(fetch_movie_detail_url)
+        movie_detail_resp_json = movie_detail_resp.json()
+        movie_imdbID = movie_detail_resp_json['imdb_id']
+        movie_posterID = movie_detail_resp_json['poster_path']
+
+        movieList_dict['list'].append({'id':movieID,
+                                       'title':movieTitle,
+                                       'overview':movieOverview,
+                                       'imdbid':movie_imdbID,
+                                       'posterid':movie_posterID})
+
+    response.content_type = 'application/json'
+    return json.dumps(movieList_dict)
+
 
 
 def get_select_opts_genre():

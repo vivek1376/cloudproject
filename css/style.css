@@ -1,31 +1,65 @@
 body {
-    background-color: #e8eaeb;
+    background-color: #ada5a8;
 }
 div.sidenav {
     height: 100%;
-    width: 400px;
+    width: 300px;
     /*width: 20%;*/
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #e7adbc;
+    background-color: #293b47;
     overflow-x: hidden;
     border-right: 2px solid #be8e9a;
 }
 
 div.main {
-    margin-left: 400px;
+    margin-left: 300px;
+
     /*margin-left: 80%;*/
     /*background-color: #70f2ff;*/
 }
 
 div.movielist {
-    border: 2px solid black;
-    margin: 10px;
+    /*border: 2px solid black;*/
+    margin: 8px;
+    width: 600px;
 }
 
 div.movie {
-    background-color: #c4d1bf;
-    margin: 3px;
+    background-color: #f0e8ed;
+    /*margin: 3px;*/
+    border-bottom: 2px solid #c9c9c9;
+    padding: 10px;
+    /*overflow: auto;*/
+    /*width: 100%;*/
+}
+
+p.movietitle {
+    float: left;
+    font-size: 20px;
+    width: 320px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    margin-left: 12px;
+}
+
+img.movieimg {
+    display: block;
+    float: left;
+}
+
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+a.imdbid {
+    float: right;
+    display: block;
+    margin-right: 6px;
 }
