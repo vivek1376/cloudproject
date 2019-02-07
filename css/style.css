@@ -19,3 +19,13 @@ div.main {
     /*margin-left: 80%;*/
     /*background-color: #70f2ff;*/
 }
+
+div.movielist {
+    border: 2px solid black;
+    margin: 10px;
+}
+
+div.movie {
+    background-color: #c4d1bf;
+    margin: 3px;
+}
