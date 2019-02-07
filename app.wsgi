@@ -10,7 +10,7 @@ from bottle import route, default_app, template, get, post, request, static_file
 # ... build or import your bottle application here ...
 # Do NOT use bottle.run() with mod_wsgi
 
-index_html = '''My first web app! By <strong>{{ author }}</strong>.'''
+# index_html = '''My first web app! By <strong>{{ author }}</strong>.'''
 
 @get('/hello') # or @route('/hello')
 def hello():
@@ -29,37 +29,6 @@ def returnInfo():
     password = request.forms.get('password')
     return '<p>login info entered.</p>'
 
-html_string = '''
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My App</title>
-    <link rel="stylesheet" type="text/css" href="reset.css">
-    <link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-<div class="sidenav">
- <form action="/" method="post">
-  <!--First name:<br>-->
-     <select name="genres">
-         <option value="sci-fi">Sci Fi</option>
-         <option value="drama">Drama</option>
-     </select>
-     <input type="text" name="year" value="">
-     <input id="submit" type="button" value="Submit">
-</form>
-
-</div>
-<!--<h1>hello</h1>-->
-<div class="main">
-    <p>hello</p>
-</div>
-<script src="aja.js"></script>
-<script src="myscript.js"></script>
-</body>
-</html>
-'''
 
 @route('/<filename:re:.*\.css>')
 def send_static(filename):
@@ -71,7 +40,14 @@ def send_static(filename):
 
 @route('/')
 def home():
+    with open('index.html', 'r') as myfile:
+        html_string = myfile.read()
+
     return html_string
+
+    # return static_file('index.html', root='/')
+    # return html_string
+
     # return static_file("", root='/index.html')
     # return template(index_html, author='vivek')
     # return 'this is home.'
