@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
+
     document.querySelector('input#submit').addEventListener("click", function () {
         var l = document.querySelector('select#genrelist');
         var lval = l.options[l.selectedIndex].text;
