@@ -4,31 +4,19 @@ import os
 import json
 import requests
 
-api_key='0ebba73bf032314a5c9ff1de0e692f60'
+api_key = '0ebba73bf032314a5c9ff1de0e692f60'
+
 # Change working directory so relative paths (and template lookup) work again
 os.chdir(os.path.dirname(__file__))
 
-#import bottle
+# import bottle
 from bottle import route, default_app, template, get, post, request, static_file, response, debug
-# ... build or import your bottle application here ...
-# Do NOT use bottle.run() with mod_wsgi
 
-# index_html = '''My first web app! By <strong>{{ author }}</strong>.'''
 
-@get('/hello') # or @route('/hello')
-def hello():
-    response.content_type = 'application/json'
-    # return json.dumps({'a':'b'})
-    return json.dumps(tmdb_api_call())
-
-    # return '''
-    #     <form action="/hello" method="post">
-    #         Username: <input name="username" type="text" />
-    #         Password: <input name="password" type="password" />
-    #         <input value="Login" type="submit" />
-    #     </form>
-    # '''
-    # return "Hello World!"
+# @get('/hello')
+# def hello():
+#     response.content_type = 'application/json'
+#     return json.dumps(tmdb_api_call())
 
 
 def tmdb_api_call():
@@ -40,9 +28,9 @@ def tmdb_api_call():
 
 def tmdb_api_get_movies_list(genreid, releaseyr):
     fetch_movies_url = 'https://api.themoviedb.org/3/discover/movie?api_key=' + api_key \
-    + '&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&' \
-      'page=1&primary_release_year=' + str(releaseyr) + '&with_genres=' + str(genreid) \
-    + '&with_original_language=en'
+                       + '&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&' \
+                         'page=1&primary_release_year=' + str(releaseyr) + '&with_genres=' + str(genreid) \
+                       + '&with_original_language=en'
 
     movies_list = requests.get(fetch_movies_url)
     movies_list_json = movies_list.json()
@@ -62,22 +50,21 @@ def tmdb_api_get_movies_list(genreid, releaseyr):
 
         # make api call to fetch movie detail, imdb id and poster path
         fetch_movie_detail_url = 'https://api.themoviedb.org/3/movie/' + str(movieID) + '?api_key=' \
-        + api_key + '&language=en-US'
+                                 + api_key + '&language=en-US'
 
         movie_detail_resp = requests.get(fetch_movie_detail_url)
         movie_detail_resp_json = movie_detail_resp.json()
         movie_imdbID = movie_detail_resp_json['imdb_id']
         movie_posterID = movie_detail_resp_json['poster_path']
 
-        movieList_dict['list'].append({'id':movieID,
-                                       'title':movieTitle,
-                                       'overview':movieOverview,
-                                       'imdbid':movie_imdbID,
-                                       'posterid':movie_posterID})
+        movieList_dict['list'].append({'id': movieID,
+                                       'title': movieTitle,
+                                       'overview': movieOverview,
+                                       'imdbid': movie_imdbID,
+                                       'posterid': movie_posterID})
 
     response.content_type = 'application/json'
     return json.dumps(movieList_dict)
-
 
 
 def get_select_opts_genre():
@@ -94,14 +81,6 @@ def get_select_opts_genre():
     return opts_str
 
 
-@post('/hello')
-def returnInfo():
-    # return json.dumps(tmdb_api_call())
-    username = request.forms.get('username')
-    password = request.forms.get('password')
-    return '<p>login info entered.</p>'
-
-
 @route('/<filename:re:.*\.css>')
 def send_static(filename):
     return static_file(filename, root='css/')
@@ -111,25 +90,18 @@ def send_static(filename):
 def send_static(filename):
     return static_file(filename, root='js/')
 
+
 @route('/<filename:re:.*\.png>')
 def send_static(filename):
     return static_file(filename, root='static/')
+
 
 @route('/')
 def home():
     with open('index.html', 'r') as myfile:
         html_string = myfile.read()
 
-    return template(html_string, select_opts=get_select_opts_genre()) # , hello_name='vivek')
-
-    # return html_string
-
-    # return static_file('index.html', root='/')
-    # return html_string
-
-    # return static_file("", root='/index.html')
-    # return template(index_html, author='vivek')
-    # return 'this is home.'
+    return template(html_string, select_opts=get_select_opts_genre())
 
 
 @post('/')
@@ -138,11 +110,7 @@ def form():
     releaseyr = request.forms.get('relyear')
 
     return tmdb_api_get_movies_list(genreid, releaseyr)
-    # return json.dumps({'val1': val1, 'val2': val2})
-    # return '<p>login info entered.</p>'
+
 
 debug(mode=True)
 application = default_app()
-
-#
-

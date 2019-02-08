@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .timeout(2500)
             .data({'genreid': selectOpt_val,'relyear': yr})
             .on('200', function (response) {
-                console.log('ajax response received!!\n');// + JSON.stringify(response['results']));
+                console.log('ajax response received!!\n');
                 console.log(response);
 
                 var movieList = response['list'];
@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 for (var i = 0; i < movieCount; i++) {
                     var movie_div = document.createElement('div');
                     movie_div.setAttribute('class', 'movie clearfix');
-                    // movie_div.setAttribute('class', '.clearfix');
 
                     var poster_url = 'https://image.tmdb.org/t/p/w92/' + movieList[i]['posterid'];
                     var movie_poster_img = document.createElement('img');
@@ -70,10 +69,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     }
 
                     document.querySelector('div.movielist').appendChild(movie_div);
-
-                    // console.log(movieList[i]);
                 }
-
             })
             .on('500', function () {
                 document.querySelector('div.movielist').innerHTML = "";

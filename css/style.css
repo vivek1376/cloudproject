@@ -29,28 +29,20 @@ div.sidenav {
 
 div.main {
     margin-left: 300px;
-
-    /*margin-left: 80%;*/
-    /*background-color: #70f2ff;*/
 }
 
 div.movielist {
-    /*border: 2px solid black;*/
     margin: 8px;
-    width: 600px;
-    /*border: 1px solid #b5b5b5;*/
+    width: 760px;
     border-radius: 5px;
 }
 
 div.movie {
     background-color: #fcf8f6;
-    /*margin: 3px;*/
     border-bottom: 2px solid #dfdfdf;
     border-left: 1px solid #bfbfbf;
     border-right: 1px solid #bfbfbf;
     padding: 10px;
-    /*overflow: auto;*/
-    /*width: 100%;*/
 }
 
 div.firstmovie {
@@ -67,22 +59,18 @@ div.lastmovie {
 
 p.titleoverview {
     float: left;
-    /*font-size: 22px;*/
     margin-left: 15px;
-    width: 350px;
+    width: 520px;
 }
 
 p.movietitle {
     font-size: 22px;
     font-weight: 700;
-    /*line-height: 22px;*/
-    /*width: 320px;*/
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
     color: #606a6f;
     vertical-align: top;
-    /*margin-left: 15px;*/
 }
 
 img.movieimg {
@@ -91,7 +79,6 @@ img.movieimg {
     margin-top: 8px;
     margin-bottom: 8px;
 }
-
 
 .clearfix::after {
   content: "";
@@ -105,18 +92,8 @@ a.imdbid {
     text-decoration: none;
     color: #819b8b;
     float: right;
-    /*display: block;*/
     margin-right: 6px;
-    /*background-color: #819b8b;*/
-    /*border-radius: 10px;*/
     padding: 0;
-    /*max-height: 16px;*/
-    /*vertical-align: center;*/
-}
-
-a.imdbid:link {
-    /*text-decoration: dashed;*/
-
 }
 
 a.imdbid:hover {
@@ -124,10 +101,8 @@ a.imdbid:hover {
 }
 
 p.overview {
-    /*float: none;*/
-    font-size: 13px;
+    font-size: 15px;
     font-weight: 400;
-    /*margin-left: 15px;*/
     margin-top: 14px;
 }
 
@@ -137,20 +112,14 @@ select#genrelist {
     margin-top: 30px;
     margin-bottom: 14px;
     height: 36px;
-    font-family: inherit;
     font-style: inherit;
-    font-size: inherit;
-    font-weight: inherit;
-
     font-family: inherit;
     font-weight: 700;
     color: #3d4448;
     font-size: 15px;
 }
 
-
 input#yearbox {
-
     display: block;
     width: 100%;
     border-radius: 0;
@@ -162,7 +131,6 @@ input#yearbox {
     padding: 4px;
     font-family: inherit;
     background-color: #dfecf0;
-
     font-family: inherit;
     font-weight: 700;
     color: #3d4448;
@@ -181,11 +149,8 @@ div.sidenav p {
 }
 
 input#submit {
-    /*display: table-cell;*/
-    /*text-align: right;*/
     display: inline-block;
     position: absolute;
     right: 20px;
     margin-top: 24px;
-    /*margin-right: 20px;*/
 }
