@@ -141,17 +141,16 @@ select#genrelist {
     font-style: inherit;
     font-size: inherit;
     font-weight: inherit;
-}
 
-
-form {
     font-family: inherit;
     font-weight: 700;
     color: #3d4448;
     font-size: 15px;
 }
 
+
 input#yearbox {
+
     display: block;
     width: 100%;
     border-radius: 0;
@@ -163,6 +162,11 @@ input#yearbox {
     padding: 4px;
     font-family: inherit;
     background-color: #dfecf0;
+
+    font-family: inherit;
+    font-weight: 700;
+    color: #3d4448;
+    font-size: 15px;
 }
 
 div.sidenav p {
@@ -174,4 +178,14 @@ div.sidenav p {
     font-style: italic;
     text-align: right;
     font-size: 18px;
+}
+
+input#submit {
+    /*display: table-cell;*/
+    /*text-align: right;*/
+    display: inline-block;
+    position: absolute;
+    right: 20px;
+    margin-top: 24px;
+    /*margin-right: 20px;*/
 }

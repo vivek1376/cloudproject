@@ -22,7 +22,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 // clear
                 document.querySelector('div.movielist').innerHTML = "";
 
-                for (var i = 0; i < movieList.length; i++) {
+                movieCount = Math.min(10, movieList.length);
+
+                for (var i = 0; i < movieCount; i++) {
                     var movie_div = document.createElement('div');
                     movie_div.setAttribute('class', 'movie clearfix');
                     // movie_div.setAttribute('class', '.clearfix');
@@ -63,7 +65,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     if (i === 0) {
                         movie_div.setAttribute('class', 'movie clearfix firstmovie');
-                    } else if (i === (movieList.length - 1)) {
+                    } else if (i === (movieCount - 1)) {
                         movie_div.setAttribute('class', 'movie clearfix lastmovie');
                     }
 
@@ -72,6 +74,10 @@ document.addEventListener("DOMContentLoaded", function() {
                     // console.log(movieList[i]);
                 }
 
+            })
+            .on('500', function () {
+                document.querySelector('div.movielist').innerHTML = "";
+                document.querySelector('div.movielist').innerHTML = "Error occurred. please try again!";
             })
             .go();
         console.log("clicked");
