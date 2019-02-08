@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function() {
             })
             .on('500', function () {
                 document.querySelector('div.movielist').innerHTML = "";
-                document.querySelector('div.movielist').innerHTML = "Error occurred. please try again!";
+                document.querySelector('div.movielist').innerHTML = "Error occurred. please try again after 10 seconds!";
             })
             .go();
         console.log("clicked");

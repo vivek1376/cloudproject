@@ -13,19 +13,6 @@ os.chdir(os.path.dirname(__file__))
 from bottle import route, default_app, template, get, post, request, static_file, response, debug
 
 
-# @get('/hello')
-# def hello():
-#     response.content_type = 'application/json'
-#     return json.dumps(tmdb_api_call())
-
-
-def tmdb_api_call():
-    fetch_genres_url = 'https://api.themoviedb.org/3/genre/movie/list?api_key=' + api_key + '&language=en-US'
-    resp_genres = requests.get(fetch_genres_url)
-    resp_genres_json = resp_genres.json()
-    return resp_genres_json
-
-
 def tmdb_api_get_movies_list(genreid, releaseyr):
     fetch_movies_url = 'https://api.themoviedb.org/3/discover/movie?api_key=' + api_key \
                        + '&language=en-US&sort_by=popularity.desc&include_adult=false&include_video=false&' \
@@ -112,5 +99,5 @@ def form():
     return tmdb_api_get_movies_list(genreid, releaseyr)
 
 
-debug(mode=True)
+# debug(mode=True)
 application = default_app()
