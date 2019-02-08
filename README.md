@@ -1,5 +1,5 @@
 # Discover Movies!
-###* A web-app to discover 10 most popular movies by year & genre. *
+### * A web-app to discover 10 most popular movies by year & genre. *
 
 
 ## Usage
