@@ -111,6 +111,9 @@ def send_static(filename):
 def send_static(filename):
     return static_file(filename, root='js/')
 
+@route('/<filename:re:.*\.png>')
+def send_static(filename):
+    return static_file(filename, root='static/')
 
 @route('/')
 def home():

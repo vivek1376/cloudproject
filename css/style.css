@@ -1,18 +1,31 @@
 body {
     background-color: #ada5a8;
+    font-family: acumin-pro, sans-serif;
+    background-image: url("kindajean.v2.png");
 }
+
 div.sidenav {
     height: 100%;
     width: 300px;
+    padding-left: 20px;
+    padding-right: 20px;
     /*width: 20%;*/
     position: fixed;
     z-index: 1;
     top: 0;
     left: 0;
-    background-color: #293b47;
+    background-color: #3c4d51;
     overflow-x: hidden;
-    border-right: 2px solid #be8e9a;
+    border-right: 2px solid #2b575d;
 }
+
+/*div#screen {*/
+    /*position: fixed;*/
+    /*height: 100%;*/
+    /*width: 100%;*/
+    /*z-index: 10;*/
+    /*background-color: pink;*/
+/*}*/
 
 div.main {
     margin-left: 300px;
@@ -25,30 +38,58 @@ div.movielist {
     /*border: 2px solid black;*/
     margin: 8px;
     width: 600px;
+    /*border: 1px solid #b5b5b5;*/
+    border-radius: 5px;
 }
 
 div.movie {
-    background-color: #f0e8ed;
+    background-color: #fcf8f6;
     /*margin: 3px;*/
-    border-bottom: 2px solid #c9c9c9;
+    border-bottom: 2px solid #dfdfdf;
+    border-left: 1px solid #bfbfbf;
+    border-right: 1px solid #bfbfbf;
     padding: 10px;
     /*overflow: auto;*/
     /*width: 100%;*/
 }
 
-p.movietitle {
+div.firstmovie {
+    border-top: 1px solid #cbcbcb;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+}
+
+div.lastmovie {
+    border-bottom: 1px solid #cbcbcb;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+}
+
+p.titleoverview {
     float: left;
-    font-size: 20px;
-    width: 320px;
+    /*font-size: 22px;*/
+    margin-left: 15px;
+    width: 350px;
+}
+
+p.movietitle {
+    font-size: 22px;
+    font-weight: 700;
+    /*line-height: 22px;*/
+    /*width: 320px;*/
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    margin-left: 12px;
+    color: #606a6f;
+    vertical-align: top;
+    /*margin-left: 15px;*/
 }
 
 img.movieimg {
     display: block;
     float: left;
+    margin-top: 8px;
+    margin-bottom: 8px;
 }
 
 
@@ -59,7 +100,78 @@ img.movieimg {
 }
 
 a.imdbid {
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    color: #819b8b;
     float: right;
-    display: block;
+    /*display: block;*/
     margin-right: 6px;
+    /*background-color: #819b8b;*/
+    /*border-radius: 10px;*/
+    padding: 0;
+    /*max-height: 16px;*/
+    /*vertical-align: center;*/
+}
+
+a.imdbid:link {
+    /*text-decoration: dashed;*/
+
+}
+
+a.imdbid:hover {
+    border-bottom: 2px dotted #778f80;
+}
+
+p.overview {
+    /*float: none;*/
+    font-size: 13px;
+    font-weight: 400;
+    /*margin-left: 15px;*/
+    margin-top: 14px;
+}
+
+select#genrelist {
+    display: block;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 14px;
+    height: 36px;
+    font-family: inherit;
+    font-style: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+
+form {
+    font-family: inherit;
+    font-weight: 700;
+    color: #3d4448;
+    font-size: 15px;
+}
+
+input#yearbox {
+    display: block;
+    width: 100%;
+    border-radius: 0;
+    font-family: inherit;
+    font-weight: inherit;
+    font-size: inherit;
+    border: 3px solid #98b1b7;
+    height: 38px;
+    padding: 4px;
+    font-family: inherit;
+    background-color: #dfecf0;
+}
+
+div.sidenav p {
+    margin-top: 8px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #678791;
+    font-weight: 700;
+    font-style: italic;
+    text-align: right;
+    font-size: 18px;
 }

@@ -34,30 +34,39 @@ document.addEventListener("DOMContentLoaded", function() {
 
                     movie_div.appendChild(movie_poster_img);
 
+                    var movie_imdb_a = document.createElement('a');
+                    movie_imdb_a.setAttribute('href', 'https://www.imdb.com/title/' + movieList[i]['imdbid']);
+                    movie_imdb_a.setAttribute('class', 'imdbid');
+                    movie_imdb_a.setAttribute('target', '_blank');
+                    textnode = document.createTextNode("imdb \uD83E\uDC6D");
+                    movie_imdb_a.appendChild(textnode);
+                    movie_div.appendChild(movie_imdb_a);
+
+                    var movie_title_overview_p = document.createElement('p');
+                    movie_title_overview_p.setAttribute('class', 'titleoverview');
 
                     var movie_title_p = document.createElement('p');
                     var textnode = document.createTextNode(movieList[i]['title']);
                     movie_title_p.appendChild(textnode);
                     movie_title_p.setAttribute('class', 'movietitle');
 
-                    movie_div.appendChild(movie_title_p);
+                    movie_title_overview_p.appendChild(movie_title_p);
 
-                    var movie_imdb_a = document.createElement('a');
-                    movie_imdb_a.setAttribute('href', 'https://www.imdb.com/title/' + movieList[i]['imdbid']);
-                    movie_imdb_a.setAttribute('class', 'imdbid');
-                    movie_imdb_a.setAttribute('target', '_blank');
+                    movie_overview_p = document.createElement('p');
+                    movie_overview_p.setAttribute('class', 'overview');
+                    textnode = document.createTextNode(movieList[i]['overview']);
+                    movie_overview_p.appendChild(textnode);
 
-                    textnode = document.createTextNode("imdb \uD83E\uDC6D");
-                        // movieList[i]['imdbid']);
-                    movie_imdb_a.appendChild(textnode);
-                    // movie_imdb_a.innerText="imdb \u1f86d";
-                    // movie_imdb_p.setAttribute('class', 'imdbid');
+                    movie_title_overview_p.appendChild(movie_overview_p);
 
-                    movie_div.appendChild(movie_imdb_a);
+                    movie_div.appendChild(movie_title_overview_p);
 
+                    if (i === 0) {
+                        movie_div.setAttribute('class', 'movie clearfix firstmovie');
+                    } else if (i === (movieList.length - 1)) {
+                        movie_div.setAttribute('class', 'movie clearfix lastmovie');
+                    }
 
-
-                    //
                     document.querySelector('div.movielist').appendChild(movie_div);
 
                     // console.log(movieList[i]);
